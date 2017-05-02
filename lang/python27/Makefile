@@ -129,5 +129,7 @@ post-patch:
 post-install:
 	for i in ${STAGEDIR}${PREFIX}/lib/python2.7/lib-dynload/*.so; do \
 		${STRIP_CMD} $$i; done						# Strip shared extensions
+	${INSTALL_DATA} ${WRKSRC}/Tools/gdb/libpython.py \
+		${STAGEDIR}${PREFIX}/lib/libpython2.7.so.1-gdb.py
 
 .include <bsd.port.mk>
